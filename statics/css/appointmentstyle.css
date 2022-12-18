@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #eee;
+    padding: 4% 3% 1%;
+    /* height: 100vh; */
+    font-family: 'Ubuntu', sans-serif;
+}
+.row{
+    background-color: #FFF;
+    border-radius: 15px;
+}
+.appointment-section-left{
+    background-color: #000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+#swalook-logo{
+    width: 55%;
+}
+
+#form-heading{
+    font-size: 200%;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#appointment-form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5%;
+}
+input{
+    font-size: 140%;
+    border: none;
+    outline: 0;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+input::placeholder{
+    font-family: 'Ubuntu', sans-serif;
+}
+#email, #services-opted, #served-by{
+    margin-top: 8%;
+    width:55%;
+}
+.dropdown{
+    margin-top: 8%;
+}
+#Fname, #Lname{
+    align-self: center;
+}
+#submit-button{
+    color: #fff;
+    font-size: 150%;
+    font-weight: 700;
+    padding: 2% 8%;
+    width: 50%;
+    margin-top: 10%;
+    border-radius: 10px;
+    background-color: #000;
+}
+#submit-button:hover{
+    color: #fff;
+    background-color: #2a2a2a;
+}
+@media only screen and (max-width:600px){
+    #submit-button{
+        padding: 2% 5%;
+        font-size: 110%;
+    }
+    #email, #services-opted, #served-by{
+        width: 80%;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .name{
+        width: 100%;
+    }
+    #Lname{
+        margin-top: 4%;
+    }
+    #swalook-logo{
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .appointment-section-left{
+        border-radius: 0;
+    }
+}
+@media only screen and (max-width:1000px){
+    .left{
+        border-radius: 0;
+    }
+    #swalook-logo{
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+input[type='number']::-webkit-inner-spin-button,input[type='number']::-webkit-outer-spin-button {
+    display: none;
+}
+
+#services-opted{
+    margin-top: 5%;
+}
+#date{
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+#email{
+    margin-bottom: 6%;
+}
+.services-box{
+    position: relative;
+    background-color: #fff;
+    width:50%
+}
+.select-btn{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #eee;
+    padding: 10px 20px;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.select-btn .btn-text{
+    font-size: 140%;
+    font-weight: 400;
+}
+.arrow-down{
+    margin-left:16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: 0.3s;
+}
+.select-btn.open .arrow-down{
+    transform: rotate(-180deg);
+}
+.services-list{
+    position: relative;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    overflow-y: scroll;
+    max-height: 180px;
+    z-index: 99999;
+}
+.services-list .service{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.select-btn.open ~ .services-list{
+    display: block;
+}
+.services-list .service:hover{
+    background-color: #eee;
+    transition: 0.3s;
+}
+.service .service-text{
+    font-size: 120%;
+    font-weight: 400;
+    align-items: center;
+}
+.service .checkbox{
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #2a2a2a;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin: 12px;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+.checkbox .check-icon{
+    font-size: 18px;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+}
+.service.checked .check-icon{
+    transform: scale(1);
+}
+
+.nav{
+    position:fixed;
+    width:50%;
+    margin-left: 25%;
+    bottom: 0;
+    border-radius: 15px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  body{
+    background-color: rgb(221, 220, 220);
+  }
+  .nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 65px;
+  }
+  .nav ul li{
+    list-style-type: none;
+    position: relative;
+    width: 20%;
+    height: 45px;
+    z-index: 1000;
+  }
+  .nav ul li a{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+  }
+  .nav ul li a .icon{
+    position: relative;
+    display: block;
+    width:55px;
+    height: 55px;
+    text-align: center;
+    line-height: 65px;
+    border-radius:50%;
+    color: #0E172C;
+    font-size: 35px;
+  }
+  .nav ul li.active a .icon::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #2BD47D;
+    filter: blur(6px);
+    opacity: 0;
+  }
+  .nav ul li.active a .icon{
+    background-color: #2BD47D;
+  }
+  .nav ul li.active a .icon::before{
+    opacity: 0.5;
+  }
+  .user-icon{
+    font-size: 170%;
+  }
+
+  .time{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+#hours, #mins, #meridian {
+    padding: 1%;
+    border-radius: 8px;
+}

@@ -1,0 +1,188 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- font awsome link-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+   </head>
+   
+
+<body>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+<section class="home-section">
+  <nav>
+    <div class="nav-img">
+      <img src="{% static 'images/circular logo.png' %}" alt="Swalook_Logo" id="nav-logo">
+    </div>
+
+    <div class="profile-details">
+     
+      <span class="admin_name">Welcome, {{users}}</span>
+      <i class='bx bxs-user-circle user-icon'></i>
+    </div>
+  </nav>
+
+  <div class="home-content">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic"><a href="" style="color:black; text-decoration:none;">Business Analysis</a></div>
+        </div>
+          <i class='bx bx-line-chart graph'></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic"><a href="{% url 'generate_bill' %}" style="color:black; text-decoration:none;">Generate Invoice</a></div>
+        </div>
+          <i class='bx bx-money graph two'></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic"><a href="{% url 'appointment' %}" style="color:black; text-decoration:none;">Book Appointment</a></div>
+        </div> 
+          <i class='bx bxs-calendar graph three'></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Manage Inventory</div>
+        </div>
+          <i class='bx bx-cube-alt graph four' ></i>
+      </div>
+    </div>
+  </div>
+    
+  <div class="recent-sales box">
+    <p class="title">Customer Details</p>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Service</th>
+        <th>Cost</th>
+      </tr>
+      {% for data in invoice_data%}
+      <tr>
+        <td>{{data.date_time}}</td>
+        <td>{{data.Name}}</td>
+        <td>{{data.service_catg_name}}</td>
+        <td><i class='bx bx-rupee'></i>{{data.prise}}/-</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+
+  <div class="top-sales box">
+    <div class="title">
+      {{dialouge}}
+    </div>
+      <form  action="{% url 'search' %}" class="d-flex" role="search" id="search" method="post">
+          {% csrf_token %}
+          <input class="form-control me-2" type="text" placeholder="Search Appointments" aria-label="Search" class="search" name="search" required>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      {% for i in ap_data%}
+      {% with i as i%}
+      <ul class="appointments">
+        <li>
+          <div class="app" style="display: inline-block;">
+            <div class="appointments-left">
+              <h6 class="name">{{i.customer_name}}</h6>
+                <p class="tel">{{i.contact_number}}</p>
+                
+               <p class="service" style="line-height:16px; font-size:smaller;" ><span style="display:inline-block;">{{i.services}}</span></p>
+                
+            </div>
+            <div class="appointents-right" style="text-align: right; height:fit-content">
+                
+                <p>{{i.booking_date}}</p>
+                <p>{{i.booking_time}}</p> 
+
+            </div>
+          </div>
+        </li>
+      </ul>
+     {% endwith %}
+     {% endfor %}
+      
+        
+  </div>
+
+</section>
+
+
+<!-- navbar -->
+
+<!-- navbar -->
+<div class="nav">
+  <ul>
+    <li class="element">
+      <a href="">
+        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+      </a>
+    </li>
+    <li class="element">
+      <a href="">
+        <span class="icon"><ion-icon name="cash-outline"></ion-icon></span>
+      </a>
+    </li>
+    <li class="element active">
+      <a href="/">
+        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+      </a>
+    </li>
+    <li class="element">
+      <a href="">
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+      </a>
+    </li>
+    <li class="element">
+      <a href="">
+        <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+      </a>
+    </li>
+    <li class="element">
+      <a href="add/service/">
+        <span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/eaa87c3c3f.js" crossorigin="anonymous"></script>
+<script>
+  const list = document.querySelectorAll('.element');
+  function activeLink(){
+      list.forEach((item)=>
+      item.classList.remove('active'));
+      this.classList.add('active');
+  }
+  list.forEach((item) =>
+  item.addEventListener('click', activeLink))
+</script>
+
+
+</body>
+</html>
+

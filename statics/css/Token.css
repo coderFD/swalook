@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.row{
+    width: 100%;
+    text-align: center;
+}
+#Token-entry{
+    padding: 4% 2%;
+}
+#Token-img{
+    width: 100%;
+    height: 100%;
+}
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#head{
+    font-size: 250%;
+    color: #ff735c;
+    font-weight: 600;
+}
+#Token-input-field{
+    border: none;
+    background-color: rgb(223, 221, 221);
+    padding: 1.5% 3%;
+    width: 60%;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    font-size: 130%;
+    font-weight: 500;
+}
+#submit-button{
+    margin: 4%;
+    background-color: #ff735c;
+    color: #fff;
+    font-size: 180%;
+    padding: 0.7% 3%;
+    border-radius: 8px;
+    border: none;
+}
+#submit-button:hover{
+    background-color: #e86d5a;
+}
+#Token-input-field::placeholder{
+    font-family: 'Poppins',sans-serif;
+}

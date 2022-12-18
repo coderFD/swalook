@@ -1,0 +1,86 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwaLook</title>
+    <!-- Fonts Section -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@700&display=swap" rel="stylesheet"> <!--Nav brand font-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">  <!--Nav-link font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!--Landing Heading font-->
+
+    <!-- Bootstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">          <!--Bootstrap Css-->
+    <!-- Styling section -->
+    
+    <link rel="stylesheet" href="{%static 'css/indexstyle.css' %}">  <!--Styles-->
+</head>
+<body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   <!--Bootstrap -->
+
+    <!--Fontawesome JS-->
+    <script src="https://kit.fontawesome.com/eaa87c3c3f.js" crossorigin="anonymous"></script>
+    
+    <!-- Landing Section -->
+
+    <!-- Navbar Section -->
+
+    <Section class="Landing">
+
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+               SwaLook
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto nav-list">
+                    <li class="nav-item link-item">
+                        <a href="{% url 'index' %}" class="nav-link menu-link">
+                            Home
+                         </a>
+                    </li>
+                    <li class="nav-item link-item">
+                        <a href="#" class="nav-link menu-link">
+                            Explore
+                        </a>
+                    </li>
+                    <li class="nav-item link-item">
+                        <a href="#" class="nav-link menu-link">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item link-item">
+                        <a href="/" class="nav-link menu-link">
+                            Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- After Nav -->
+    <div class="row ld">
+        <div class="col-lg-6" id="ld-left">
+            <h1 id="head">Look Better.Feel Better.</h1>
+            <p id="exp">A one stop solution for all your health and skin problems. We help you maximize your beauty in an organic way in no time. </p>
+            <button type="button" class="btn btn-outline-secondary" id="apt-btn">Book Appointment</button>
+        </div>
+        <div class="col-lg-6" id="ld-right">
+            <img src="{% static '/images/B1.png' %}" id="Beauty" >
+        </div>
+
+    </div>
+
+
+    </Section>
+
+</body>
+</html>

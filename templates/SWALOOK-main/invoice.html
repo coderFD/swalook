@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SwaLook-Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/bill/invoicecss.css' %}">
+    <style>
+        @media print{
+            button{
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div id="invoice">
+                <div class="toolbar hidden-print">
+                    <div class="text-end">
+                        <!--href="invoice_/{{invoice_data.slno}}/"-->
+                        <button type="button" class="btn btn-dark"><i class="fa fa-print"></i><a href="invoice_/{{invoice_data.slno}}/" style="text-decoration: none; color:white;">Print</a></button>
+                        <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i><a href="invoice_/{{invoice_data.slno}}/" style="text-decoration: none; color:white;">Download as PDF</a></button>
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-share-nodes"></i><a style="text-decoration: none; color:white;" href="send_msg">Share</a></button>
+                    </div>
+                    <hr>
+                </div>
+                <div class="invoice overflow-auto">
+                    <div style="min-width: 600px">
+                        <header>
+                            <div class="row">
+                                <div class="col company-details" style="text-align: center;">
+                                <img src="{% static 'images/SwaLook Logo resized.png' %}" alt="SwaLook-Logo" id="Swalook-Logo">
+                                </div>
+                            </div>
+                        </header>
+                        
+                        <main>
+                            <div class="row contacts">
+                                <div class="col invoice-to">
+                                    <div class="text-gray-light">INVOICE TO:</div>
+                                    <h2 class="to">{{invoice_data.Name}}</h2>
+                                    <div class="address">{{invoice_data.Address}}</div>
+                                    <div class="email"><a href="mailto:john@example.com">{{invoice_data.Mobileno}}</a>
+                                    </div>
+                                </div>
+                                <div class="col invoice-details">
+                                    <h1 class="invoice-id">INVOICE {{invoice_data.slno}}</h1>
+                                    <div class="date">Date of Invoice: {{invoice_data.date_time}}</div>
+                                </div>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>S. No.</th>
+                                        <th class="text-center">DESCRIPTION</th>
+                                        <th class="text-center">PRICE</th>
+                                        <th class="text-center">DISCOUNT</th>
+                                        <th class="text-center">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                
+                                {% for i in service_obj %}
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td class="no">{{i.slnoo}}</td>
+                                        <td class="text-left">
+                                            <h3>
+                                                {{i.service}}
+                                            </h3>
+                                        </td>
+                                        <td class="unit">&#8377;{{i.prise}}/- </td>
+                                        <td class="qty text-center"> {{i.discount}}/- </td>
+                                        <td class="total text-center">&#8377;{{i.total}}/-</td>
+                                    </tr>
+                                    
+                                </tbody>
+                                {% endfor %}
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2" class="text-center">SUBTOTAL</td>
+                                        <td class="text-center">&#8377; {{invoice_data.total}} /-</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2" class="text-center">CGST 9%</td>
+                                        <td class="text-center">&#8377; {{invoice_data.c_gst}}/-</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2" class="text-center">SGST 9%</td>
+                                        <td class="text-center">&#8377; {{invoice_data.s_gst}} /-</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2" class="text-center">GRAND TOTAL</td>
+                                        <td class="text-center">&#8377; {{invoice_data.grand_total}} /-</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="notices">
+                                <div class="notice text-center">THANK YOU ! AND VISIT AGAIN</div>
+                            </div>
+                        </main>
+                        
+                        <footer>This is a Digital Invoice generated by <strong>SwaLook</strong> valid without signature as well.</footer>
+                    </div>
+                    <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+
+</style>
+
+<!--Fontawesome JS-->
+
+<script src="https://kit.fontawesome.com/eaa87c3c3f.js" crossorigin="anonymous"></script>   <!--Fontawesome Icons-->
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Landing Page */
+/* Navbar */
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar-brand{
+    font-family: 'Cormorant SC', serif;
+    font-size: 210%;
+    font-weight: 800;
+    font-weight: bold;
+}
+.link-item{
+    margin-left:17%;
+}
+.Landing{
+    padding:0 6%;
+    background:#fdeff4;
+    width: 100%;
+}
+.menu-link{
+    font-family:'Open Sans', sans-serif;
+    font-size: 120%;
+    color: #2a2a2a;
+    font-weight:550;
+}
+.ld{
+    width: 100%;
+}
+#menu{
+    margin-right:20%;
+}
+#Beauty{
+    width: 96%;
+    height: 95%;
+    padding: 0;
+    margin-top: 5%;
+    z-index: 1;
+    margin-left:6%;
+    
+}
+#ld-right{
+    text-align: center;
+}
+#ld-left{
+    text-align: center;
+    padding: 4%;
+}
+#head{
+    font-family: 'Roboto Slab', serif;
+    font-size: 320%;
+    font-weight: 600;
+    margin-top: 22%;
+}
+#exp{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 140%;
+    margin-top: 1.5%;
+    width: 90%;
+    margin-left: 3%;
+}
+#apt-btn:hover{
+    background-color: #2a2a2a;
+    color: white;
+}
+#apt-btn{
+    color: #2a2a2a;
+    font-weight:600;
+    margin-top: 2%;
+}
+/* Media Query for menu Links in Small screen */
+@media only screen and (max-width:600px) {
+    .link-item{
+        margin-left:4%;
+    }
+}
+@media only screen and (max-width:600px)  {
+    #head{
+        margin-top: 6%;
+    }
+    .profile-btns{
+        margin-top: 4%;
+    }
+}

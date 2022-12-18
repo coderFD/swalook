@@ -1,0 +1,1 @@
+web: gunicorn <swalook_backend>.wsgi --log-file -
